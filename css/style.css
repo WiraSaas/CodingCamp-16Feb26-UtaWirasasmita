@@ -1,8 +1,6 @@
-/* 1. Dasar & Kontainer Utama */
+/* 1. Base & Layout */
 * { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+    margin: 0; padding: 0; box-sizing: border-box; 
     font-family: 'Inter', -apple-system, sans-serif; 
 }
 
@@ -11,11 +9,11 @@ body {
     color: #ffffff; 
     display: flex; 
     justify-content: center; 
-    align-items: center; 
     min-height: 100vh; 
     padding: 20px; 
 }
 
+/* Container Presisi */
 .container { 
     background-color: #121212; 
     width: 100%; 
@@ -24,13 +22,14 @@ body {
     border-radius: 20px; 
     box-shadow: 0 20px 50px rgba(0, 0, 0, 1); 
     border: 1px solid #222; 
+    margin: auto; /* Memastikan presisi di tengah layar */
 }
 
-/* Bagian Judul - Dibuat Lebih Terang & Jelas */
+/* 2. Header Kekinian */
 header h1 { 
     font-weight: 800; 
-    font-size: 3.2rem; 
-    color: #4caf50; /* Hijau lebih terang agar tidak buram */
+    font-size: clamp(2rem, 8vw, 3.2rem); /* Otomatis mengecil di HP */
+    color: #4caf50; 
     text-shadow: 0 0 20px rgba(76, 175, 80, 0.6); 
     text-transform: uppercase; 
     text-align: center;
@@ -39,19 +38,22 @@ header h1 {
 
 header p { 
     text-align: center; 
-    color: #aaaaaa; /* Abu-abu terang agar teks RevoU tidak kabur */
+    color: #aaaaaa; 
     margin-bottom: 30px; 
-    font-size: 0.9rem; 
-    font-weight: 500;
+    font-size: 0.8rem; 
     letter-spacing: 2px; 
-    text-transform: uppercase;
 }
 
-/* 2. Bagian Input */
+/* 3. Input Section (RESPONSIF) */
 .input-section { 
     display: flex; 
+    flex-direction: column; /* Stack di HP agar tidak gebkew ke gigir */
     gap: 15px; 
     margin-bottom: 25px; 
+}
+
+@media (min-width: 640px) {
+    .input-section { flex-direction: row; } /* Berjejer di Laptop */
 }
 
 input { 
@@ -61,21 +63,20 @@ input {
     padding: 15px; 
     border-radius: 10px; 
     outline: none; 
-    transition: 0.3s;
 }
 
-input:focus { border-color: #4caf50; }
 #todo-input { flex: 3; }
 #date-input { flex: 1.5; color-scheme: dark; }
 
-/* 3. Bagian Kontrol (Filter & Delete All) */
+/* 4. Control Section */
 .control-section { 
     display: flex; 
     justify-content: space-between; 
+    gap: 10px;
     margin-bottom: 25px; 
 }
 
-/* TOMBOL EMERALD GLOSSY (Tambah & Hapus Semua) */
+/* Tombol Glossy */
 .btn-emerald-glow {
     background: linear-gradient(180deg, #1b5e20 0%, #000000 100%); 
     color: #4caf50; 
@@ -84,72 +85,40 @@ input:focus { border-color: #4caf50; }
     font-weight: bold; 
     border-radius: 10px; 
     cursor: pointer;
-    box-shadow: 0 5px 0 #052208, 0 0 15px rgba(76, 175, 80, 0.2); 
-    transition: all 0.1s ease;
+    box-shadow: 0 5px 0 #052208; 
+    transition: all 0.1s;
 }
 
-.btn-emerald-glow:hover { filter: brightness(1.2); }
-.btn-emerald-glow:active { transform: translateY(4px); box-shadow: 0 1px 0 #052208; }
-
-/* TOMBOL OBSIDIAN GLOSSY (Filter) */
 .btn-obsidian {
     background: linear-gradient(180deg, #333 0%, #000 100%);
-    color: #fff; 
-    border: 1px solid #444; 
+    color: #fff; border: 1px solid #444; 
     padding: 12px 25px;
-    font-weight: bold; 
-    border-radius: 10px; 
-    cursor: pointer;
-    box-shadow: 0 5px 0 #000; 
-    transition: all 0.1s ease;
+    font-weight: bold; border-radius: 10px; 
+    box-shadow: 0 5px 0 #000;
 }
 
-/* 4. Bagian Tabel */
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    margin-top: 10px; 
-}
+/* 5. Tabel & Status Wokeh dah */
+.table-container { width: 100%; overflow-x: auto; }
 
-th { 
-    text-align: left; 
-    padding: 15px; 
-    color: #ffffff; 
-    font-size: 0.75rem; 
-    border-bottom: 2px solid #333; 
-    font-weight: bold;
-}
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
 
-td { 
-    padding: 18px 15px; 
-    border-bottom: 1px solid #1a1a1a; 
-    font-size: 0.95rem; 
-    color: #ffffff; 
-    vertical-align: middle;
-}
+th { text-align: left; padding: 15px; color: #777; font-size: 0.75rem; border-bottom: 2px solid #333; }
+td { padding: 18px 15px; border-bottom: 1px solid #1a1a1a; font-size: 0.95rem; vertical-align: middle; }
 
-/* 5. Label Status */
+/* Warna Status Sesuai */
 .status-label { 
     padding: 6px 12px; 
     border-radius: 6px; 
     font-size: 0.7rem; 
     font-weight: bold; 
     text-transform: uppercase;
+    display: inline-block;
 }
 
-.status-pending { 
-    background: #332b00; 
-    color: #ffcc00; 
-    border: 1px solid #665500; 
-}
+.status-pending { background: #332b00; color: #ffcc00; border: 1px solid #665500; }
+.status-completed { background: #0a220c; color: #4caf50; border: 1px solid #1b5e20; }
 
-.status-completed { 
-    background: #0a220c; 
-    color: #4caf50; 
-    border: 1px solid #1b5e20; 
-}
-
-/* 6. Tombol Aksi (Ikon Sampah) */
+/* Ikon Wadah Runtah Merah */
 .delete-task { 
     background: transparent; 
     color: #ff4444; 
@@ -157,36 +126,25 @@ td {
     cursor: pointer; 
     font-size: 1.4rem; 
     transition: 0.2s; 
-    filter: drop-shadow(0 0 5px rgba(255, 68, 68, 0.3));
 }
 
-.delete-task:hover { 
-    color: #ff0000;  
-    transform: scale(1.2);
-}
+.delete-task:hover { transform: scale(1.2); color: #ff0000; }
 
-/* 7. Tampilan Saat Kosong */
+/* 6. Empty State Rapi */
 .empty-state { 
     text-align: center; 
-    padding: 50px; 
+    padding: 40px; 
     color: #333; 
     font-style: italic; 
 }
-/* 8. Bagian Footer - Identitas Pembuat */
+
+/* 7. Footer Presisi */
 .footer {
     margin-top: 40px;
     text-align: center;
-    border-top: 1px solid #222; /* Garis tipis biar makin jelas */
+    border-top: 1px solid #222;
     padding-top: 20px;
 }
 
-.footer p {
-    color: #777; /* Abu-abu lebih terang agar terbaca */
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-}
-
-.footer strong {
-    color: #4caf50; /* Nama kamu diberi warna hijau emerald agar stand out */
-    font-weight: 600;
-}
+.footer p { color: #777; font-size: 0.7rem; letter-spacing: 2px; }
+.footer strong { color: #4caf50; }

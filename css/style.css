@@ -1,0 +1,192 @@
+/* 1. Dasar & Kontainer Utama */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', -apple-system, sans-serif; 
+}
+
+body { 
+    background-color: #000000; 
+    color: #ffffff; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+}
+
+.container { 
+    background-color: #121212; 
+    width: 100%; 
+    max-width: 750px; 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 1); 
+    border: 1px solid #222; 
+}
+
+/* Bagian Judul - Dibuat Lebih Terang & Jelas */
+header h1 { 
+    font-weight: 800; 
+    font-size: 3.2rem; 
+    color: #4caf50; /* Hijau lebih terang agar tidak buram */
+    text-shadow: 0 0 20px rgba(76, 175, 80, 0.6); 
+    text-transform: uppercase; 
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+header p { 
+    text-align: center; 
+    color: #aaaaaa; /* Abu-abu terang agar teks RevoU tidak kabur */
+    margin-bottom: 30px; 
+    font-size: 0.9rem; 
+    font-weight: 500;
+    letter-spacing: 2px; 
+    text-transform: uppercase;
+}
+
+/* 2. Bagian Input */
+.input-section { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 25px; 
+}
+
+input { 
+    background: #1a1a1a; 
+    border: 1px solid #333; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 10px; 
+    outline: none; 
+    transition: 0.3s;
+}
+
+input:focus { border-color: #4caf50; }
+#todo-input { flex: 3; }
+#date-input { flex: 1.5; color-scheme: dark; }
+
+/* 3. Bagian Kontrol (Filter & Delete All) */
+.control-section { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 25px; 
+}
+
+/* TOMBOL EMERALD GLOSSY (Tambah & Hapus Semua) */
+.btn-emerald-glow {
+    background: linear-gradient(180deg, #1b5e20 0%, #000000 100%); 
+    color: #4caf50; 
+    border: 1px solid #1b5e20;
+    padding: 12px 25px;
+    font-weight: bold; 
+    border-radius: 10px; 
+    cursor: pointer;
+    box-shadow: 0 5px 0 #052208, 0 0 15px rgba(76, 175, 80, 0.2); 
+    transition: all 0.1s ease;
+}
+
+.btn-emerald-glow:hover { filter: brightness(1.2); }
+.btn-emerald-glow:active { transform: translateY(4px); box-shadow: 0 1px 0 #052208; }
+
+/* TOMBOL OBSIDIAN GLOSSY (Filter) */
+.btn-obsidian {
+    background: linear-gradient(180deg, #333 0%, #000 100%);
+    color: #fff; 
+    border: 1px solid #444; 
+    padding: 12px 25px;
+    font-weight: bold; 
+    border-radius: 10px; 
+    cursor: pointer;
+    box-shadow: 0 5px 0 #000; 
+    transition: all 0.1s ease;
+}
+
+/* 4. Bagian Tabel */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+}
+
+th { 
+    text-align: left; 
+    padding: 15px; 
+    color: #ffffff; 
+    font-size: 0.75rem; 
+    border-bottom: 2px solid #333; 
+    font-weight: bold;
+}
+
+td { 
+    padding: 18px 15px; 
+    border-bottom: 1px solid #1a1a1a; 
+    font-size: 0.95rem; 
+    color: #ffffff; 
+    vertical-align: middle;
+}
+
+/* 5. Label Status */
+.status-label { 
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    font-size: 0.7rem; 
+    font-weight: bold; 
+    text-transform: uppercase;
+}
+
+.status-pending { 
+    background: #332b00; 
+    color: #ffcc00; 
+    border: 1px solid #665500; 
+}
+
+.status-completed { 
+    background: #0a220c; 
+    color: #4caf50; 
+    border: 1px solid #1b5e20; 
+}
+
+/* 6. Tombol Aksi (Ikon Sampah) */
+.delete-task { 
+    background: transparent; 
+    color: #ff4444; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.4rem; 
+    transition: 0.2s; 
+    filter: drop-shadow(0 0 5px rgba(255, 68, 68, 0.3));
+}
+
+.delete-task:hover { 
+    color: #ff0000;  
+    transform: scale(1.2);
+}
+
+/* 7. Tampilan Saat Kosong */
+.empty-state { 
+    text-align: center; 
+    padding: 50px; 
+    color: #333; 
+    font-style: italic; 
+}
+/* 8. Bagian Footer - Identitas Pembuat */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid #222; /* Garis tipis biar makin jelas */
+    padding-top: 20px;
+}
+
+.footer p {
+    color: #777; /* Abu-abu lebih terang agar terbaca */
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.footer strong {
+    color: #4caf50; /* Nama kamu diberi warna hijau emerald agar stand out */
+    font-weight: 600;
+}

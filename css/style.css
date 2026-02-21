@@ -48,14 +48,22 @@ header p {
 .input-section { 
     display: flex; 
     flex-direction: column; /* Stack di HP agar tidak gebkew ke gigir */
-    gap: 15px; 
+    gap: 12px; 
     margin-bottom: 25px; 
 }
-
+/* Tambahan: Paksa input & tombol jadi lebar penuh di HP */
+.input-section input, 
+.input-section .btn-emerald-glow {
+    width: 100%;
+}
 @media (min-width: 640px) {
     .input-section { flex-direction: row; } /* Berjejer di Laptop */
-}
-
+    /* Kembalikan lebar otomatis saat di laptop */
+    .input-section input, 
+    .input-section .btn-emerald-glow {
+        width: auto;
+       }   
+    }
 input { 
     background: #1a1a1a; 
     border: 1px solid #333; 
@@ -63,10 +71,19 @@ input {
     padding: 15px; 
     border-radius: 10px; 
     outline: none; 
+    height: 50px;
 }
 
 #todo-input { flex: 3; }
 #date-input { flex: 1.5; color-scheme: dark; }
+
+/* Pastikan tombol + tingginya sama dengan input */
+.input-section .btn-emerald-glow {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* 4. Control Section */
 .control-section { 

@@ -1,0 +1,6 @@
+{
+    "window.density.editorTabHeight": "compact",
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.restoreViewState": false,
+    "livePreview.defaultPreviewPath": "/index.html"
+}
